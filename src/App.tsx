@@ -1,10 +1,10 @@
-import React from "react";
 import "./App.css";
+import { MyRoutes } from "./MyRoutes/MyRoutes";
 
 function App() {
   return (
     <>
-      <div></div>
+      <MyRoutes />
     </>
   );
 }
