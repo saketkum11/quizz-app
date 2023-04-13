@@ -1,30 +1,22 @@
-import { Container, Flex, Text, Box } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Flex, Box, Button, Spacer } from "@chakra-ui/react";
 const Header = () => {
   return (
     <>
-      <Container
-        color={"white"}
-        backgroundColor={"blackAlpha.700"}
-        padding="1rem"
-        maxWidth="100%"
-        as="header"
-      >
-        <Flex justifyContent="space-between" alignItems="center">
-          <Box>
-            <Link to="/">Quizz-app</Link>
-          </Box>
-          <Box>
-            <Flex gap="0.5rem">
-              <Text> news india </Text>
-              <Text> news india </Text>
-              <Text> news india </Text>
-              <Text> news india </Text>
-              <Text> news india </Text>
-            </Flex>
-          </Box>
-        </Flex>
-      </Container>
+      <Flex p="1rem" bg="white" marginLeft="2px" borderEndStartRadius="1rem">
+        <Spacer></Spacer>
+        <Box>
+          <Button
+            bg="teal.400"
+            color="white"
+            borderRadius="20px"
+            paddingBlock="0.5rem"
+            paddingInline="1.5rem"
+            textAlign="center"
+          >
+            Login
+          </Button>
+        </Box>
+      </Flex>
     </>
   );
 };

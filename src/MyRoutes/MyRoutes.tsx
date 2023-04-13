@@ -1,15 +1,22 @@
 import { Routes, Route } from "react-router-dom";
-import { HomeLayout } from "../layout/HomeLayout";
-import { Home } from "../pages/Home";
-import NotFound from "../pages/NotFound";
-
+import {
+  DashBoard,
+  Home,
+  HomeLayout,
+  LeaderBoard,
+  Login,
+  NotFound,
+  Signup,
+} from "../pages/services";
 const MyRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomeLayout />}>
+      <Route element={<HomeLayout />}>
         <Route index element={<Home />} />
-        <Route path="signin" element={<Home />} />
-        <Route path="signup" element={<Home />} />
+        <Route path="signin" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="dashboard" element={<DashBoard />} />
+        <Route path="leaderboard" element={<LeaderBoard />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
