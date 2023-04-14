@@ -6,7 +6,11 @@ const Footer = () => {
       <Box>Code By Saket Kumar</Box>
       <Spacer></Spacer>
       <List>
-        <Flex gap="1rem" alignItems="center">
+        <Flex
+          gap="1rem"
+          alignItems="center"
+          flexDirection={{ base: "column", md: "row" }}
+        >
           <ListItem>FaceBook</ListItem>
           <ListItem>Instgram</ListItem>
           <ListItem>Twitter</ListItem>
