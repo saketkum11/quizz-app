@@ -13,12 +13,12 @@ const MyRoutes = () => {
     <Routes>
       <Route element={<HomeLayout />}>
         <Route index element={<Home />} />
-        <Route path="signin" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
         <Route path="dashboard" element={<DashBoard />} />
         <Route path="leaderboard" element={<LeaderBoard />} />
-        <Route path="*" element={<NotFound />} />
       </Route>
+      <Route path="/signin" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
