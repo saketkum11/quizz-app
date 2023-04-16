@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { Formik, Field, useFormik } from "formik";
+import { auth } from "./services";
 const Login = () => {
   const formik = useFormik({
     initialValues: {
@@ -50,7 +51,14 @@ const Login = () => {
             <FormLabel>Password</FormLabel>
             <Input color="white" placeholder="Password"></Input>
           </FormControl>
-          <Button color="teal.400">Login</Button>
+          <Button
+            onClick={() => {
+              console.log(auth);
+            }}
+            color="teal.400"
+          >
+            Login
+          </Button>
           <NavLink to="/signup">Don't Have Account?</NavLink>
           <Link color="white">Guest User Credential</Link>
         </VStack>

@@ -8,6 +8,7 @@ import { DashBoard } from "./DashBoard";
 import { LeaderBoard } from "./LeaderBoard";
 import { SideBar } from "../component/SideBar";
 import { Footer } from "../component/Footer";
+import { auth } from "../Firebase/Firebase";
 export {
   HomeLayout,
   Home,
@@ -19,4 +20,5 @@ export {
   LeaderBoard,
   SideBar,
   Footer,
+  auth,
 };
