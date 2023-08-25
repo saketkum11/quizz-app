@@ -8,14 +8,16 @@ import {
   Heading,
   Link,
 } from "@chakra-ui/react";
-import { Form, NavLink } from "react-router-dom";
-import React, { FormEvent, ReactElement, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useState, FormEvent } from "react";
 import { SignUpTypes } from "../allTypes/formTypes";
 const Signup = () => {
-  const [formData, setFormData] = useState<SignUpTypes>({
-    email: "",
+  const DataBase: SignUpTypes = {
+    email: " ",
     password: "",
-  });
+  };
+
+  const [formData, setFormData] = useState(DataBase);
 
   return (
     <>
@@ -41,7 +43,11 @@ const Signup = () => {
               placeholder="Email ID"
               name="email"
               value={formData.email}
-              onChange={(event) => console.log(event.target.value)}
+              onChange={(event) =>
+                setFormData((prev) => {
+                  return { ...prev, email: event.target.value };
+                })
+              }
             ></Input>
             <FormErrorMessage>Input value is worng</FormErrorMessage>
           </FormControl>
@@ -52,6 +58,11 @@ const Signup = () => {
               placeholder="Password"
               name="password"
               value={formData.password}
+              onChange={(event) =>
+                setFormData((prev) => {
+                  return { ...prev, password: event.target.value };
+                })
+              }
             ></Input>
           </FormControl>
           <Button color="teal.400" type="submit">

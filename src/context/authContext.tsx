@@ -1,9 +1,10 @@
 import React, { createContext, useContext } from "react";
-import { childrenType } from "../Firebase/allTypes";
 
 const AuthContext = createContext({});
 const useAuth = () => useContext(AuthContext);
-
+type childrenType = {
+  children: React.ReactNode;
+};
 const AuthProvider = ({ children }: childrenType) => {
   const createNewAccount = () => {
     try {
