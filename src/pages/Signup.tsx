@@ -8,18 +8,18 @@ import {
   Heading,
   Link,
 } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
-import { Formik, Field, useFormik } from "formik";
+import { Form, NavLink } from "react-router-dom";
+import React, { FormEvent, ReactElement, useState } from "react";
+import { SignUpTypes } from "../allTypes/formTypes";
 const Signup = () => {
+  const [formData, setFormData] = useState<SignUpTypes>({
+    email: "",
+    password: "",
+  });
+
   return (
     <>
-      <VStack
-        as="form"
-        mx="auto"
-        minH="600px"
-        justifyContent="center"
-        h="100vh"
-      >
+      <VStack mx="auto" minH="600px" justifyContent="center" h="100vh">
         <VStack
           w={{ base: "80%", md: "400px" }}
           p="3rem"
@@ -28,28 +28,36 @@ const Signup = () => {
           gap="1rem"
           bg="teal.400"
           color="white"
+          as="form"
+          onSubmit={(e: FormEvent) => {
+            e.preventDefault();
+          }}
         >
           <Heading>SignUp</Heading>
-          <FormControl>
-            <FormLabel>FirstName</FormLabel>
-            <Input placeholder="FirstName"></Input>
-            <FormErrorMessage>Input value is worng</FormErrorMessage>
-          </FormControl>
-          <FormControl>
-            <FormLabel>LastName</FormLabel>
-            <Input placeholder="LastName"></Input>
-            <FormErrorMessage>Input value is worng</FormErrorMessage>
-          </FormControl>
-          <FormControl>
+
+          <FormControl isRequired>
             <FormLabel>Email ID</FormLabel>
-            <Input placeholder="Email ID"></Input>
+            <Input
+              placeholder="Email ID"
+              name="email"
+              value={formData.email}
+              onChange={(event) => console.log(event.target.value)}
+            ></Input>
             <FormErrorMessage>Input value is worng</FormErrorMessage>
           </FormControl>
-          <FormControl>
+          <FormControl isRequired>
             <FormLabel>Password</FormLabel>
-            <Input color="white" placeholder="Password"></Input>
+            <Input
+              color="white"
+              placeholder="Password"
+              name="password"
+              value={formData.password}
+            ></Input>
           </FormControl>
-          <Button color="teal.400">SignUp</Button>
+          <Button color="teal.400" type="submit">
+            SignUp
+          </Button>
+
           <NavLink to="/signin">Already Have account?</NavLink>
           <Link color="white">Guest User Credential</Link>
         </VStack>
