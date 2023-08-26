@@ -11,19 +11,25 @@ import {
 import { NavLink } from "react-router-dom";
 import { useState, FormEvent } from "react";
 import { SignUpTypes } from "../allTypes/formTypes";
+import { useAuth } from "../context/authContext";
 const Signup = () => {
+  const { createNewAccount } = useAuth();
   const DataBase: SignUpTypes = {
     email: " ",
     password: "",
   };
 
   const [formData, setFormData] = useState(DataBase);
-
   return (
     <>
-      <VStack mx="auto" minH="600px" justifyContent="center" h="100vh">
+      <VStack
+        mx="auto"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
         <VStack
-          w={{ base: "80%", md: "400px" }}
+          maxW="300px"
           p="3rem"
           borderRadius="0.5rem"
           border="2px solid "
@@ -33,6 +39,7 @@ const Signup = () => {
           as="form"
           onSubmit={(e: FormEvent) => {
             e.preventDefault();
+            createNewAccount(formData);
           }}
         >
           <Heading>SignUp</Heading>
@@ -40,7 +47,7 @@ const Signup = () => {
           <FormControl isRequired>
             <FormLabel>Email ID</FormLabel>
             <Input
-              placeholder="Email ID"
+              placeholder="Email"
               name="email"
               value={formData.email}
               onChange={(event) =>
